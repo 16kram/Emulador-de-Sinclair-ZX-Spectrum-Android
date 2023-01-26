@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="kempston"
+        android:defaultValue="false"
+        android:summary="Habilita el Joystick en modo Kempston"
+        android:title="Joystick Kempston" />
+    <CheckBoxPreference
+        android:key="carga"
+        android:defaultValue="false"
+        android:summary="Los juegos se cargan sin poner LOAD ' '"
+        android:title="Carga automática" />
+</PreferenceScreen>
