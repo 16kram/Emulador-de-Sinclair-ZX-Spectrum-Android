@@ -75,7 +75,7 @@ public class Principal implements Runnable {
                     frames = 0;
                     if (tiempoTotal != 0) {//El tiempoTotal ha de ser !=0 para que no haya error de división entre cero
                         velocidadEmu = (int) (2000 / tiempoTotal);
-                        Log.d("velocidad","velocidad emulador="+velocidadEmu+"%");
+                        //Log.d("velocidad","velocidad emulador="+velocidadEmu+"%");
                     }
                 }
                 border = Arrays.copyOf(borderBuffer, 312);//Copia el buffer del borde dentro del array del pantalla del borde
