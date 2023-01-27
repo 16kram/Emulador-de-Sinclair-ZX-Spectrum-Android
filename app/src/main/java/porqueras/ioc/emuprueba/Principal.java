@@ -24,6 +24,7 @@ public class Principal implements Runnable {
     private static int borde = 7;//Color del borde
     int muestraBorder = 0;
     public static boolean ponBorde = false;
+    public static boolean dibujaPantalla=false;
 
     public Principal(Z80 z) {
         frames = 0;
@@ -74,7 +75,7 @@ public class Principal implements Runnable {
                     frames = 0;
                     if (tiempoTotal != 0) {//El tiempoTotal ha de ser !=0 para que no haya error de división entre cero
                         velocidadEmu = (int) (2000 / tiempoTotal);
-                        //velocidad.setText(velocidadEmu + "%");
+                        Log.d("velocidad","velocidad emulador="+velocidadEmu+"%");
                     }
                 }
                 border = Arrays.copyOf(borderBuffer, 312);//Copia el buffer del borde dentro del array del pantalla del borde
@@ -83,7 +84,6 @@ public class Principal implements Runnable {
                 muestraBorder = 0;
                 ptrBorderBuffer = 0;
                 z.Int();
-
                 while ((System.currentTimeMillis() - inicioTemp) < tiempoFrame) {
                 }
                 tiempoTotal = System.currentTimeMillis() - inicioTemp;

@@ -65,6 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Habilitamos la aceleración por hardware
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+
         //Mantenemos la pantalla en orientación vertical
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -674,9 +679,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         private static final int TAM = 4, Y = 192 * TAM, X = 256 * TAM;
         private int astable = 0;//Parpadeo del Flash
         private int borde = 7;//Color del borde
-        //private int[] border = new int[312];
-        //private int ptrBorder = 0;
-
 
         public Pantalla(Context context) {
             super(context);
