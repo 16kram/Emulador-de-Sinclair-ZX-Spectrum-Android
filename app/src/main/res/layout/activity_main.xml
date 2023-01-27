@@ -215,7 +215,7 @@
                 android:id="@+id/buttonenter"
                 android:layout_width="38dp"
                 android:layout_height="39dp"
-                android:text="en" />
+                android:text=">>" />
         </LinearLayout>
 
         <LinearLayout
@@ -227,7 +227,7 @@
                 android:id="@+id/buttoncapsshift"
                 android:layout_width="38dp"
                 android:layout_height="39dp"
-                android:text="cs" />
+                android:text="^" />
 
             <Button
                 android:id="@+id/buttonz"

@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //Hilo principal
         principal = new Principal(z);
         hiloPrincipal = new Thread(principal);
-        hiloPrincipal.setPriority(Thread.MAX_PRIORITY);//Establece la prioridad máxima al hilo
+        hiloPrincipal.setPriority(Thread.NORM_PRIORITY);//Establece la prioridad del hilo
         hiloPrincipal.start();
 
     }
