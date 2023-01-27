@@ -15,6 +15,7 @@ public class Z80 {
 
     private Cargar cargar;
     private boolean reset;
+    private Sonido sonido;
 
     // Registros Z-80
     // Set de registros principales
@@ -129,30 +130,30 @@ public class Z80 {
 
     public void Emulacion() {
         //Carga de programas mediante LOAD
-        if (this.getPc() == 0x056B && cargar!=null) {
-                if (cargar.getNumBloqueActual() >= cargar.getNumBloques()) {
-                    //No hay datos para cargar
-                } else {
-                    setCFlag();//Bandera a 1 LOAD, bandera a 0 VERIFY
-                    bc = 0xB001;
-                    af = 0x0145;
-                    int dirIx = ix;//Dirección donde se guardan los datos
-                    int longitudBloque = de;//Longitud de los datos
-                    if (longitudBloque > cargar.getTamBloque()) {//Si el valor que indica el registro DE es mayor que el tamaño del bloque de datos
-                        longitudBloque = cargar.getTamBloque();  //se toma como referencia la longitud del bloque de datos
-                    }
-                    int contDatos = 0;
-                    while (contDatos <= longitudBloque) {
-                        int dato = cargar.getDatoBloqueActual(contDatos + 1);
-                        Memoria.escribe(ix, dato);
-                        incIX();
-                        decDE();
-                        contDatos++;
-                    }
-                    //System.out.println("Longitud del bloque=" + longitudBloque);
-                    cargar.IncNumBloqueActual();
+        if (this.getPc() == 0x056B && cargar != null) {
+            if (cargar.getNumBloqueActual() >= cargar.getNumBloques()) {
+                //No hay datos para cargar
+            } else {
+                setCFlag();//Bandera a 1 LOAD, bandera a 0 VERIFY
+                bc = 0xB001;
+                af = 0x0145;
+                int dirIx = ix;//Dirección donde se guardan los datos
+                int longitudBloque = de;//Longitud de los datos
+                if (longitudBloque > cargar.getTamBloque()) {//Si el valor que indica el registro DE es mayor que el tamaño del bloque de datos
+                    longitudBloque = cargar.getTamBloque();  //se toma como referencia la longitud del bloque de datos
                 }
-                setPc(0x05e2);
+                int contDatos = 0;
+                while (contDatos <= longitudBloque) {
+                    int dato = cargar.getDatoBloqueActual(contDatos + 1);
+                    Memoria.escribe(ix, dato);
+                    incIX();
+                    decDE();
+                    contDatos++;
+                }
+                //System.out.println("Longitud del bloque=" + longitudBloque);
+                cargar.IncNumBloqueActual();
+            }
+            setPc(0x05e2);
         }
         ir = Memoria.lee(pc);// Lee el contenido de la memoria FETCH T1
         incPC();// Incrementa el contador del programa T2
@@ -9323,7 +9324,7 @@ public class Z80 {
             } else {
                 mic = 0;
             }
-            //sonido.setValor(buz, mic);
+            sonido.setValor(buz, mic);
         }
     }
 
@@ -9421,7 +9422,8 @@ public class Z80 {
             case A:
                 escribeD0D7(leeA());
                 if (leeC() == 0xfe) {//Cambia el color del borde
-                    Principal.setBorde(leeA());;//con la instrucción OUT de Basic
+                    Principal.setBorde(leeA());
+                    ;//con la instrucción OUT de Basic
                     int buz = 0;//Buzzer
                     int mic = 0;//Mic
                     if ((leeA() & 16) == 16) {//Puerto 254, BUZ(bit 4)+MIC(bit3)=BUZZER
@@ -9436,7 +9438,7 @@ public class Z80 {
                     } else {
                         mic = 0;
                     }
-                    //sonido.setValor(buz, mic);
+                    sonido.setValor(buz, mic);
                 }
                 break;
             case B:
@@ -10468,13 +10470,9 @@ public class Z80 {
         tStates += valor;
     }
 
-    //Guarda el objeto pasado como parámetro en la variable pantalla
-   /* public void setPantalla(Pantalla pantalla) {
-        this.pantalla = pantalla;
-    }
-
+    //Obtiene el objeto sonido
     public void setSonido(Sonido sonido) {
         this.sonido = sonido;
-    }*/
+    }
 
 }

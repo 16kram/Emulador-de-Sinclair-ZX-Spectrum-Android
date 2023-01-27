@@ -30,6 +30,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
     Z80 z;
     Principal principal;
+    Thread hiloPrincipal;
     Button boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton0;
     Button botonq, botonw, botone, botonr, botont, botony, botonu, botoni, botono, botonp;
     Button botona, botons, botond, botonf, botong, botonh, botonj, botonk, botonl, botonenter;
@@ -97,8 +98,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         Pantalla pantalla = new Pantalla(this);
         layout.addView(pantalla);
 
+        //Añadimos el listener de la pantalla para que se pueda usar como joystick táctil
         layout.setOnTouchListener(this);
 
+        //Añadimos los listeners del teclado
         botoncapsshift = (Button) findViewById(R.id.buttoncapsshift);
         botoncapsshift.setOnTouchListener(this);
         botonz = (Button) findViewById(R.id.buttonz);
@@ -183,17 +186,21 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         boton0 = (Button) findViewById(R.id.button0);
         boton0.setOnTouchListener(this);
 
+        //Inicializa el teclado
         LeeTeclas leeTeclas = new LeeTeclas();
 
+        //Inicializa el Z80;
         z = new Z80();
 
+        //Carga la ROM del Spectrum
         Cargar cargar = new Cargar(this);
         cargar.loadRom();
 
 
         //Hilo principal
         principal = new Principal(z);
-        Thread hiloPrincipal = new Thread(principal);
+        hiloPrincipal = new Thread(principal);
+        hiloPrincipal.setPriority(Thread.MAX_PRIORITY);//Establece la prioridad máxima al hilo
         hiloPrincipal.start();
 
     }
@@ -225,11 +232,13 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 startActivity(intentAcercaDe);
                 break;
             case R.id.salir:
+                hiloPrincipal.destroy();
                 finish();
         }
         return false;
     }
 
+    //Devuelve del ReciclerView el programa que se tiene que cargar
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         //Carga los juegos
@@ -257,6 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         }
     }
 
+    //Escribe automaticamente LOAD "" para cargar el programa seleccionado
     public void cargaAutomatica() {
         boolean carga = preferencias.getBoolean("carga", true);
         if (carga) {
@@ -302,6 +312,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
 
+    //Revisa si se ha pulsado una tecla o si se ha hecho una acción con el joystick
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
@@ -565,6 +576,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             LeeTeclas.kempston &= (0xff - 16);////Disparo tecla <>
         }
 
+        //JOYSTICK KEMPSTON
         //Si arrastramos el dedo
         if (event.getAction() == MotionEvent.ACTION_MOVE && preferencias.getBoolean("kempston", true)) {
             final int TR = 7;
@@ -673,6 +685,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
 
+    //Pantalla
     public class Pantalla extends View {
         private static final int DIR_MEMORIA_VIDEO = 16384;
         private static final int DIR_MEMORIA_ATRIBUTOS = 6144;
@@ -774,7 +787,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                     scan = 0;
                 }
             }
-            invalidate();
+            invalidate();//Actualiza la pantalla tan pronto como sea posible
         }
     }
 }
