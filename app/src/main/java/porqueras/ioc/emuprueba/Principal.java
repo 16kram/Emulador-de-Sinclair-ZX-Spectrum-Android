@@ -22,7 +22,6 @@ public class Principal implements Runnable {
     private static int ptrBorderBuffer = 0;
     private static int borde = 7;//Color del borde
     int muestraBorder = 0;
-    public static boolean ponBorde = false;
     private Sonido sonido;
     public static boolean sonidoActivado = true;
     int muestra = 0;
@@ -89,7 +88,6 @@ public class Principal implements Runnable {
                     }
                 }
                 border = Arrays.copyOf(borderBuffer, 312);//Copia el buffer del borde dentro del array del pantalla del borde
-                ponBorde = true;
                 z.settStates(0);
                 muestra = z.gettStates();
                 muestraBorder = 0;

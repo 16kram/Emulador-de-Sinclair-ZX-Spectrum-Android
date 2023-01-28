@@ -706,7 +706,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             int posXBorde = 0;
             int posYBorde = 0;
             int ptrBorde = 0;
-            if (Principal.ponBorde) {
                 while (posYBorde < altoVentanaBorde) {
                     borde = Principal.border[ptrBorde];
                     pincel.setColor(COLORES48k[borde & 7]);
@@ -714,8 +713,6 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                     posYBorde = posYBorde + TAM;
                     ptrBorde++;
                 }
-                Principal.ponBorde = false;
-            }
 
             //Muestra el contenido de la pantalla
             int anchoVentana = canvas.getWidth();//Ancho de la ventana actual
