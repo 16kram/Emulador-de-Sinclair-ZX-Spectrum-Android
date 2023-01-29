@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.keyboard_spectrum);
 
         //Habilitamos la aceleración por hardware
         getWindow().setFlags(
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         decorView.setSystemUiVisibility(uiOptions);*/
 
         //Añadimos el screen del Spectrum
-        ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.layout);
+        ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.layoutSpectrum);
         Pantalla pantalla = new Pantalla(this);
         layout.addView(pantalla);
 
