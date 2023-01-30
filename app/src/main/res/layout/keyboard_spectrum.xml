@@ -224,79 +224,70 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="382dp"
-            android:layout_height="46dp"
-            android:layout_marginLeft="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="28dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/buttoncapsshift"
-                android:layout_width="35dp"
+                android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:text="^" />
 
             <Button
                 android:id="@+id/buttonz"
-                android:layout_width="28dp"
+                android:layout_width="38dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="9dp"
                 android:text="z" />
 
             <Button
                 android:id="@+id/buttonx"
-                android:layout_width="30dp"
+                android:layout_width="37dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
                 android:text="x" />
 
             <Button
                 android:id="@+id/buttonc"
-                android:layout_width="30dp"
+                android:layout_width="36dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="c" />
 
             <Button
                 android:id="@+id/buttonv"
-                android:layout_width="31dp"
+                android:layout_width="36dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="v" />
 
             <Button
                 android:id="@+id/buttonb"
-                android:layout_width="32dp"
+                android:layout_width="36dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="b" />
 
             <Button
                 android:id="@+id/buttonn"
-                android:layout_width="31dp"
+                android:layout_width="37dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="n" />
 
             <Button
                 android:id="@+id/buttonm"
-                android:layout_width="30dp"
+                android:layout_width="36dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="m" />
 
             <Button
                 android:id="@+id/buttonsymbolshift"
-                android:layout_width="31dp"
+                android:layout_width="37dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="^" />
 
             <Button
                 android:id="@+id/buttonspace"
-                android:layout_width="50dp"
+                android:layout_width="56dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="6dp"
                 android:text="_" />
         </LinearLayout>
     </LinearLayout>

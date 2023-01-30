@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     View decorView;
     private float x1, x2;
     private float y1, y2;
+    private boolean kempstonActivado = false;
+
 
     //Paleta de colores del Spectrum de 48K
     private static final int[] COLORES48k = {
@@ -79,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         //Objeto para el menú de preferencias
         preferencias = getSharedPreferences("porqueras.ioc.emuprueba_preferences", MODE_PRIVATE);
+
+        //Habilita el joystick Kempston si está selccionado en las preferencias
+        kempstonActivado = preferencias.getBoolean("kempston", false);
 
         //SharedPreferences.Editor editor = preferencias.edit();
         //editor.putBoolean("carga",true);
@@ -233,9 +238,18 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 break;
             case R.id.salir:
                 hiloPrincipal.destroy();
-                finish();
+                //finishAndRemoveTask();
+                finishActivity(0);
         }
         return false;
+    }
+
+    //Cuando se regresa a la actividad principal desde Preferencias
+    //A la vuelta pasa por el método onRestart y recogemos las preferencias del joystick
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        kempstonActivado = preferencias.getBoolean("kempston", false);
     }
 
     //Devuelve del ReciclerView el programa que se tiene que cargar
@@ -440,12 +454,19 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                     LeeTeclas.KROW7 &= 253;//Symbol Shift (CTRL)
                     break;
             }
+            Log.d("tecla", "Tecla pulsada");
             x1 = event.getX();
             y1 = event.getY();
         }
 
         //Si se libera la tecla
         if (event.getAction() == MotionEvent.ACTION_UP) {
+            //Pausa para que se mantengan un tiempo los valores de las teclas pulsadas y las pueda leer el Z-80
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             switch ((v.getId())) {
                 case R.id.buttoncapsshift:
                     LeeTeclas.KROW0 |= 1;//Caps Shift (SHIFT)
@@ -567,8 +588,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 case R.id.buttonsymbolshift:
                     LeeTeclas.KROW7 |= 2;//Symbol Shift (CTRL)
                     break;
-
             }
+            Log.d("tecla", "Tecla liberada");
             LeeTeclas.kempston &= (0xff - 1);//Derecha cursor
             LeeTeclas.kempston &= (0xff - 2);//Izquierda cursor
             LeeTeclas.kempston &= (0xff - 8);//Arriba cursor
@@ -578,7 +599,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         //JOYSTICK KEMPSTON
         //Si arrastramos el dedo
-        if (event.getAction() == MotionEvent.ACTION_MOVE && preferencias.getBoolean("kempston", true)) {
+        if (event.getAction() == MotionEvent.ACTION_MOVE && kempstonActivado) {
             final int TR = 7;
             x2 = event.getX();
             y2 = event.getY();
@@ -674,7 +695,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             }
         }
         //Disparo
-        if (event.getPointerCount() > 1) {
+        if (event.getPointerCount() > 1 && kempstonActivado) {
             if (event.getAction() == MotionEvent.ACTION_MOVE) {//Si ponemos el segundo dedo dispara
                 LeeTeclas.kempston |= 16;//Disparo tecla
             } else if (event.getAction() != MotionEvent.ACTION_MOVE) {//Si quitamos el segundo dedo deja de disparar
@@ -706,13 +727,13 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             int posXBorde = 0;
             int posYBorde = 0;
             int ptrBorde = 0;
-                while (posYBorde < altoVentanaBorde) {
-                    borde = Principal.border[ptrBorde];
-                    pincel.setColor(COLORES48k[borde & 7]);
-                    canvas.drawRect(posXBorde, posYBorde, anchoVentanaBorde, posYBorde + TAM, pincel);
-                    posYBorde = posYBorde + TAM;
-                    ptrBorde++;
-                }
+            while (posYBorde < altoVentanaBorde) {
+                borde = Principal.border[ptrBorde];
+                pincel.setColor(COLORES48k[borde & 7]);
+                canvas.drawRect(posXBorde, posYBorde, anchoVentanaBorde, posYBorde + TAM, pincel);
+                posYBorde = posYBorde + TAM;
+                ptrBorde++;
+            }
 
             //Muestra el contenido de la pantalla
             int anchoVentana = canvas.getWidth();//Ancho de la ventana actual

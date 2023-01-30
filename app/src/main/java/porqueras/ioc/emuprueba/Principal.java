@@ -87,13 +87,14 @@ public class Principal implements Runnable {
                         //Log.d("velocidad","velocidad emulador="+velocidadEmu+"%");
                     }
                 }
+                z.Int();
                 border = Arrays.copyOf(borderBuffer, 312);//Copia el buffer del borde dentro del array del pantalla del borde
                 z.settStates(0);
                 muestra = z.gettStates();
                 muestraBorder = 0;
                 sonido.reset();
                 ptrBorderBuffer = 0;
-                z.Int();
+                //z.Int();
                 while ((System.currentTimeMillis() - inicioTemp) < tiempoFrame) {
                 }
                 tiempoTotal = System.currentTimeMillis() - inicioTemp;
