@@ -462,11 +462,11 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         //Si se libera la tecla
         if (event.getAction() == MotionEvent.ACTION_UP) {
             //Pausa para que se mantengan un tiempo los valores de las teclas pulsadas y las pueda leer el Z-80
-            try {
-                Thread.sleep(50);
+            /*try {
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
+            }*/
             switch ((v.getId())) {
                 case R.id.buttoncapsshift:
                     LeeTeclas.KROW0 |= 1;//Caps Shift (SHIFT)
