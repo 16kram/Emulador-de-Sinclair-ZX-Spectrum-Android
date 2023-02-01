@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="623dp"
         android:orientation="vertical"
         android:layout_marginLeft="4dp"
@@ -25,61 +25,61 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="130dp"
                 android:text="1" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="86dp"
+                android:layout_width="75dp"
                 android:layout_height="130dp"
                 android:text="2" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="86dp"
+                android:layout_width="75dp"
                 android:layout_height="130dp"
                 android:text="3" />
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="130dp"
                 android:text="4" />
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="130dp"
                 android:text="5" />
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="130dp"
                 android:text="6" />
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="86dp"
+                android:layout_width="75dp"
                 android:layout_height="130dp"
                 android:text="7" />
 
             <Button
                 android:id="@+id/button8"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="130dp"
                 android:text="8" />
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="130dp"
                 android:text="9" />
 
             <Button
                 android:id="@+id/button0"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="130dp"
                 android:text="0" />
         </LinearLayout>
@@ -87,67 +87,67 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="142dp"
-            android:layout_marginLeft="21dp"
+            android:layout_marginLeft="41dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/buttonq"
-                android:layout_width="86dp"
+                android:layout_width="80dp"
                 android:layout_height="140dp"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="0dp"
                 android:text="q" />
 
             <Button
                 android:id="@+id/buttonw"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="w" />
 
             <Button
                 android:id="@+id/buttone"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="e" />
 
             <Button
                 android:id="@+id/buttonr"
-                android:layout_width="86dp"
+                android:layout_width="75dp"
                 android:layout_height="140dp"
                 android:text="r" />
 
             <Button
                 android:id="@+id/buttont"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="t" />
 
             <Button
                 android:id="@+id/buttony"
-                android:layout_width="86dp"
+                android:layout_width="75dp"
                 android:layout_height="140dp"
                 android:text="y" />
 
             <Button
                 android:id="@+id/buttonu"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="u" />
 
             <Button
                 android:id="@+id/buttoni"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="i" />
 
             <Button
                 android:id="@+id/buttono"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="o" />
 
             <Button
                 android:id="@+id/buttonp"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="p" />
         </LinearLayout>
@@ -155,67 +155,67 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="140dp"
-            android:layout_marginLeft="66dp"
+            android:layout_marginLeft="62dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/buttona"
-                android:layout_width="90dp"
+                android:layout_width="75dp"
                 android:layout_height="140dp"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="0dp"
                 android:text="a" />
 
             <Button
                 android:id="@+id/buttons"
-                android:layout_width="88dp"
+                android:layout_width="75dp"
                 android:layout_height="140dp"
                 android:text="s" />
 
             <Button
                 android:id="@+id/buttond"
-                android:layout_width="84dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="d" />
 
             <Button
                 android:id="@+id/buttonf"
-                android:layout_width="84dp"
+                android:layout_width="75dp"
                 android:layout_height="140dp"
                 android:text="f" />
 
             <Button
                 android:id="@+id/buttong"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="g" />
 
             <Button
                 android:id="@+id/buttonh"
-                android:layout_width="86dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="h" />
 
             <Button
                 android:id="@+id/buttonj"
-                android:layout_width="87dp"
+                android:layout_width="75dp"
                 android:layout_height="140dp"
                 android:text="j" />
 
             <Button
                 android:id="@+id/buttonk"
-                android:layout_width="87dp"
+                android:layout_width="70dp"
                 android:layout_height="140dp"
                 android:text="k" />
 
             <Button
                 android:id="@+id/buttonl"
-                android:layout_width="82dp"
+                android:layout_width="74dp"
                 android:layout_height="140dp"
                 android:text="l" />
 
             <Button
                 android:id="@+id/buttonenter"
-                android:layout_width="87dp"
+                android:layout_width="80dp"
                 android:layout_height="140dp"
                 android:text=">" />
         </LinearLayout>
@@ -228,61 +228,61 @@
 
             <Button
                 android:id="@+id/buttoncapsshift"
-                android:layout_width="125dp"
+                android:layout_width="105dp"
                 android:layout_height="match_parent"
                 android:text="^" />
 
             <Button
                 android:id="@+id/buttonz"
-                android:layout_width="88dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:text="z" />
 
             <Button
                 android:id="@+id/buttonx"
-                android:layout_width="83dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:text="x" />
 
             <Button
                 android:id="@+id/buttonc"
-                android:layout_width="84dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 android:text="c" />
 
             <Button
                 android:id="@+id/buttonv"
-                android:layout_width="88dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:text="v" />
 
             <Button
                 android:id="@+id/buttonb"
-                android:layout_width="88dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 android:text="b" />
 
             <Button
                 android:id="@+id/buttonn"
-                android:layout_width="88dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:text="n" />
 
             <Button
                 android:id="@+id/buttonm"
-                android:layout_width="85dp"
+                android:layout_width="75dp"
                 android:layout_height="match_parent"
                 android:text="m" />
 
             <Button
                 android:id="@+id/buttonsymbolshift"
-                android:layout_width="85dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:text="^" />
 
             <Button
                 android:id="@+id/buttonspace"
-                android:layout_width="130dp"
+                android:layout_width="110dp"
                 android:layout_height="match_parent"
                 android:text="_" />
         </LinearLayout>
@@ -290,9 +290,9 @@
 
     <ImageView
         android:id="@+id/imagenTecladoSpectrum"
-        android:layout_width="960dp"
+        android:layout_width="match_parent"
         android:layout_height="640dp"
-        android:alpha="0.3"
+        android:alpha="1.0"
         android:scaleType="fitXY"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
