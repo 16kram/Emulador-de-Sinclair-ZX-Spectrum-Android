@@ -12,12 +12,8 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="623dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="-18dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imagenTecladoSpectrum"
+        android:layout_marginLeft="4dp"
         app:layout_constraintStart_toStartOf="@+id/imagenTecladoSpectrum"
         app:layout_constraintTop_toTopOf="@+id/imagenTecladoSpectrum">
 
@@ -294,16 +290,15 @@
 
     <ImageView
         android:id="@+id/imagenTecladoSpectrum"
-        android:layout_width="match_parent"
+        android:layout_width="960dp"
         android:layout_height="640dp"
-        android:visibility="visible"
+        android:alpha="0.3"
         android:scaleType="fitXY"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/keyboard"
-        />
+        app:srcCompat="@drawable/keyboard_tablet" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
